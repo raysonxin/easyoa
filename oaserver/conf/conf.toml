@@ -1,0 +1,32 @@
+## 是否调试
+debug_mode = true
+
+## http 监听配置
+[http]
+## 监听地址
+address = "0.0.0.0"
+## 监听端口
+port = 9999
+
+## mysql 配置
+[mysql]
+## 是否调试模式
+debug = true
+## 数据库连接地址
+address = "192.168.192.1"
+## 数据库端口
+port = 3306
+## 连接池最大连接数
+max_idle_conns = 64
+## 默认打开连接数
+max_open_conns = 24
+## 数据库用户名
+user = "rayson"
+## 数据库密码
+passwd = "761217xin"
+## 数据库名
+db_name = "easyoa"
+## 数据库表前缀
+prefix = ""
+## 定时保活定
+ping_interval = 30
