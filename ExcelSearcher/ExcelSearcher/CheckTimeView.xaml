@@ -1,0 +1,24 @@
+﻿<Window x:Class="ExcelSearcher.CheckTimeView"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ExcelSearcher"
+        mc:Ignorable="d"
+        Title="CheckTimeView" Height="450" Width="800">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <StackPanel Orientation="Horizontal">
+            <TextBox Width="400" x:Name="txtEnrollFile" IsReadOnly="True"/>
+            <Button Content="选择统计文件" Width="80" Height="30" Click="btnSelectFile_Click" x:Name="btnSelectFile" Margin="5,0"/>
+            <Button Content="数据读取" Width="80" Height="30" x:Name="btnReader" Margin="5,0" Click="btnReader_Click"/>
+            <Button Content="数据分析" Width="80" Height="30" x:Name="btnAnalyze" Click="btnAnalyze_Click" Margin="10,0"/>
+            <Button Content="同步人员" Width="80" Height="30" x:Name="btnUpdateEmployee" Click="btnUpdateEmployee_Click" Margin="10,0"/>
+
+        </StackPanel>
+        <DataGrid Grid.Row="1" x:Name="dgResult" CanUserAddRows="False" IsReadOnly="True" ></DataGrid>
+    </Grid>
+</Window>

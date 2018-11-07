@@ -1,0 +1,5 @@
+<i-panel class="cell-panel-demo" title="人员列表">
+  <i-cell-group>
+    <i-cell wx:for="{{employees}}" wx:for-index="index" wx:for-item="item" title="{{item.Name}}" is-link value="{{item.Job}}"></i-cell>
+  </i-cell-group>
+</i-panel>

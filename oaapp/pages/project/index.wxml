@@ -1,0 +1,5 @@
+<i-panel class="cell-panel-demo" title="项目列表">
+    <i-cell-group>
+        <i-cell wx:for="{{projects}}" wx:for-item="item" title="{{item.Name}}" value="{{item.Code}}" label="{{item.Code}}" is-link></i-cell>
+    </i-cell-group>
+</i-panel>

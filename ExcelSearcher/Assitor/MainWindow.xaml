@@ -1,0 +1,32 @@
+﻿<Window x:Class="Assitor.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Assitor"
+        mc:Ignorable="d"
+        Title="OA助手" Height="450" Width="800">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="auto"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <StackPanel Background="AliceBlue">
+            <Button Content="考勤导入" Width="60" Height="50" Margin="5" Click="btnOpenView_Click" Tag="ImportCheck"/>
+            <Button Content="项目管理" Width="60" Height="50" Margin="5" Click="btnOpenView_Click" Tag="Project"/>
+            <Button Content="人员管理" Width="60" Height="50" Margin="5" Click="btnOpenView_Click" Tag="Employee"/>
+            <Button Content="人员分配" Width="60" Height="50" Margin="5" Click="btnOpenView_Click" Tag="StaffAllocate"/>
+        </StackPanel>
+        <Grid Grid.Column="1">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="35"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <Border  Background="AliceBlue">
+                <TextBlock x:Name="txtTitle" Text="这是标题" FontSize="20" VerticalAlignment="Center" Margin="5,0"/>
+            </Border>
+            <Border Grid.Row="1" x:Name="mainContainer">
+            </Border>
+        </Grid>
+    </Grid>
+</Window>
