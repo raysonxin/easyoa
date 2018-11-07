@@ -23,6 +23,7 @@ func RegisterRoutes(m *macaron.Macaron) {
 		m.Group("/oa", func() {
 			m.Group("/employee", func() {
 				m.Get("", emp.List)
+				m.Get("/free", emp.GetFreeEmployee)
 				m.Post("", emp.AddOne)
 				m.Put("/:id", emp.UpdateOne)
 				m.Delete("/:ids", emp.Delete)
@@ -36,10 +37,10 @@ func RegisterRoutes(m *macaron.Macaron) {
 			})
 
 			m.Group("/projstaff", func() {
-				m.Get("", staff.List)
-				m.Post("", staff.AddOne)
+				m.Get("/project", staff.ProjectAllocations)
+				m.Post("/assign", staff.Enroll)
 				m.Put("/:id", staff.UpdateOne)
-				m.Delete("/:ids", staff.Delete)
+				m.Delete("/:id/:stop", staff.Exit)
 			})
 
 			m.Group("/checktime", func() {
