@@ -1,0 +1,41 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/logs/logs",
+    "pages/employee/index",
+    "pages/project/index"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "OA便携管理系统",
+    "navigationBarTextStyle": "black"
+  },
+  "tabBar": {
+    "color": "#6e6d6b",
+    "selectedColor": "#e64340",
+    "borderStyle": "white",
+    "backgroundColor": "#fff",
+    "box-shadow": "0 0 6px 0",
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "iconPath": "images/nav/home-off.png",
+        "selectedIconPath": "images/nav/home-on.png",
+        "text": "首页"
+      },
+      {
+        "pagePath": "pages/employee/index",
+        "iconPath": "images/nav/emp-off.png",
+        "selectedIconPath": "images/nav/emp-on.png",
+        "text": "人员"
+      },
+      {
+        "pagePath": "pages/project/index",
+        "iconPath": "images/nav/emp-off.png",
+        "selectedIconPath": "images/nav/emp-on.png",
+        "text": "项目"
+      }
+    ]
+  }
+}
