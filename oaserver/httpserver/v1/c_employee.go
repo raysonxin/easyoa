@@ -56,3 +56,15 @@ func (c *EmployeeController) Delete(ctx *httpctx.HTTPCtx, db *gorm.DB) {
 	one := new(models.EmployeeModel)
 	ctx.DbDelete(one, "id")
 }
+
+func (c *EmployeeController) GetFreeEmployee(ctx *httpctx.HTTPCtx, db *gorm.DB) {
+	var employees []models.EmployeeModel
+	sql := `select * from oa_employee where ding_id not in (select ding_id from oa_project_staff)`
+	err := db.Raw(sql).Scan(&employees).Error
+	if err != nil {
+		ctx.Error(http.StatusBadRequest, err.Error())
+		return
+	}
+
+	ctx.Success(http.StatusOK, employees)
+}

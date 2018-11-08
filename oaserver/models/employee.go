@@ -4,7 +4,7 @@ package models
 type EmployeeModel struct {
 	Id     int    `gorm:"column:id;primary_key"`
 	Name   string `gorm:"column:name"`
-	Job    int    `gorm:"column:job"`
+	Job    string `gorm:"column:job"`
 	DingId string `gorm:"column:ding_id"`
 }
 
