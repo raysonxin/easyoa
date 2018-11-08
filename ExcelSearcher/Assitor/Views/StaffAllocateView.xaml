@@ -18,7 +18,15 @@
                 <RowDefinition Height="*"/>
             </Grid.RowDefinitions>
             <TextBlock Text="项目列表" VerticalAlignment="Center" FontSize="20"/>
-            <DataGrid Grid.Row="1" x:Name="dgProject" CanUserAddRows="False" IsReadOnly="True" ItemsSource="{Binding Projects}" SelectedItem="{Binding CurrentProject}"></DataGrid>
+            <DataGrid Grid.Row="1" x:Name="dgProject" CanUserAddRows="False"  AutoGenerateColumns="False"  IsReadOnly="True" ItemsSource="{Binding Projects}" SelectedItem="{Binding CurrentProject}">
+                <DataGrid.Columns>
+                    <DataGridTextColumn Header="名称" Binding="{Binding Name}" Width="150"/>
+                    <DataGridTextColumn Header="代码" Binding="{Binding Code}" Width="80"/>
+                    <DataGridTextColumn Header="联系人" Binding="{Binding Contact}" Width="80"/>
+                    <DataGridTextColumn Header="开始日期" Binding="{Binding StartDate, StringFormat='yyyy-MM-dd'}" Width="100"/>
+                    <DataGridTextColumn Header="结束日期" Binding="{Binding StopDate, StringFormat='yyyy-MM-dd'}" Width="100"/>
+                </DataGrid.Columns>
+            </DataGrid>
         </Grid>
         <Grid Grid.Column="1">
             <Grid.RowDefinitions>
@@ -32,12 +40,19 @@
                 </Grid.ColumnDefinitions>
                 <TextBlock Text="人员列表" VerticalAlignment="Center" FontSize="20"/>
                 <StackPanel Grid.Column="1" Orientation="Horizontal" >
-                    <Button Content="添加" Height="25" Width="40" Margin="3" x:Name="btnSelectAdd" Click="btnSelectAdd_Click"/>
-                    <Button Content="删除" Height="25" Width="40" Margin="3"/>
+                    <Button Content="分配" Height="25" Width="40" Margin="3" x:Name="btnSelectAdd" Click="btnSelectAdd_Click"/>
+                    <Button Content="调离" Height="25" Width="40" Margin="3" x:Name="btnRemove" Click="btnRemove_Click"/>
                 </StackPanel>
             </Grid>
 
-            <DataGrid Grid.Row="1" x:Name="dgEmployee" CanUserAddRows="False" IsReadOnly="True" ItemsSource="{Binding ProjectStaffes}" SelectedItem="{Binding CurrentProjStaff}"></DataGrid>
+            <DataGrid Grid.Row="1" x:Name="dgEmployee" IsReadOnly="True" AutoGenerateColumns="False" ItemsSource="{Binding ProjectStaffes}" SelectedItem="{Binding CurrentProjStaff}">
+                <DataGrid.Columns>
+                    <DataGridTextColumn Header="人员名称" Binding="{Binding Name}" Width="100"/>
+                    <DataGridTextColumn Header="职位" Binding="{Binding Job}" Width="150"/>
+                    <DataGridTextColumn Header="加入日期" Binding="{Binding StartDate,StringFormat= 'yyyy-MM-dd'}" Width="100"/>
+                </DataGrid.Columns>
+            </DataGrid>
         </Grid>
     </Grid>
 </UserControl>
+ 

@@ -12,6 +12,12 @@
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
 
-        <DataGrid Grid.Row="1" x:Name="dgResult" CanUserAddRows="False" IsReadOnly="True" ></DataGrid>
+        <DataGrid Grid.Row="1" x:Name="dgResult" CanUserAddRows="False" IsReadOnly="True" AutoGenerateColumns="False">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="名称" Binding="{Binding Name}" Width="*"/>
+                <DataGridTextColumn Header="职位" Binding="{Binding Job}" Width="*"/>
+                <DataGridTextColumn Header="ID" Binding="{Binding DingId}" Width="*"/>
+            </DataGrid.Columns>
+        </DataGrid>
     </Grid>
 </UserControl>

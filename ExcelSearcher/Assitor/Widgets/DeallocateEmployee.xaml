@@ -1,0 +1,38 @@
+﻿<Window x:Class="Assitor.Widgets.DeallocateEmployee"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Assitor.Widgets"
+        mc:Ignorable="d"
+        ResizeMode="NoResize"
+        WindowStartupLocation="CenterScreen"
+        Title="从项目移除人员" Height="200" Width="300">
+    <Window.Resources>
+        <Style TargetType="{x:Type TextBlock}">
+            <Setter Property="VerticalAlignment" Value="Center"/>
+        </Style>
+    </Window.Resources>
+    <Grid Margin="10">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="35"/>
+            <RowDefinition Height="35"/>
+            <RowDefinition Height="40"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="2*"/>
+        </Grid.ColumnDefinitions>
+        <TextBlock HorizontalAlignment="Right">
+                <Run Text="移除人员："/>
+        </TextBlock>
+        <TextBlock Grid.Column="1">
+                <Run Text="{Binding Staff.Name}"/>
+                <Run Text=" / "/>
+                <Run Text="{Binding Staff.Job}"/>
+        </TextBlock>
+        <TextBlock Text="离开日期：" Grid.Row="1" HorizontalAlignment="Right"/>
+        <DatePicker x:Name="dpStop" Width="150" Grid.Row="1" Grid.Column="1" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+        <Button Width="100" Content="确认移除" Grid.ColumnSpan="2" Grid.Row="2" Height="30" VerticalAlignment="Center" x:Name="btnConfirm" Click="btnConfirm_Click"/>
+    </Grid>
+</Window>
