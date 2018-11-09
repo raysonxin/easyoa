@@ -72,7 +72,7 @@ func (c *ProjectStaffController) Exit(ctx *httpctx.HTTPCtx, db *gorm.DB) {
 		return
 	}
 
-	t, err := time.Parse("2016-01-02", stop)
+	t, err := time.Parse("2006-01-02", stop)
 	if err != nil {
 		ctx.Error(http.StatusBadRequest, err.Error())
 		return
@@ -95,7 +95,7 @@ func (c *ProjectStaffController) Exit(ctx *httpctx.HTTPCtx, db *gorm.DB) {
 	tx := db.Begin()
 	err = tx.Table("oa_project_staff_record").Create(&record).Error
 	if err == nil {
-		err = tx.Table("oa_project_staff").Delete("id=?", id).Error
+		err = tx.Table("oa_project_staff").Delete(&models.ProjectStaffModel{}, "id=?", id).Error
 	}
 
 	if err != nil {

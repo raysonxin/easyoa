@@ -6,5 +6,5 @@ import (
 
 // RegisterRouter register http router
 func (svr *HTTPServer) RegisterRouter() {
-	v1.RegisterRoutes(svr.ctx)
+	v1.RegisterRoutes(svr.ctx, svr.mysql.GetMySQLDB())
 }

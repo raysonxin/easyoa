@@ -9,6 +9,8 @@ type CheckTimeModel struct {
 	//CheckOutReal string    `gorm:"column:check_out_real"`
 	CheckDate int `gorm:"column:check_date"`
 	//EmpId        int       `gorm:"column:emp_id"`
+
+	OvertimeHour float64 `gorm:"-"`
 }
 
 // TableName return tablename
