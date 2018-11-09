@@ -50,6 +50,9 @@ namespace Assitor
                 case "StaffAllocate":
                     view = new StaffAllocateView();
                     break;
+                case "Monthly":
+                    view = new MonthlyStatisticView();
+                    break;
                 default:
                     break;
             }

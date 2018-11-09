@@ -71,6 +71,7 @@
     <Compile Include="Models\EmployeeModel.cs" />
     <Compile Include="Models\ProjectModel.cs" />
     <Compile Include="Models\ProjectStaffModel.cs" />
+    <Compile Include="Models\Report.cs" />
     <Compile Include="Utils\HttpProxy.cs" />
     <Compile Include="Utils\Model.cs" />
     <Compile Include="Views\EmployeeView.xaml.cs">
@@ -80,6 +81,9 @@
       <DependentUpon>ImportCheckView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\IPageView.cs" />
+    <Compile Include="Views\MonthlyStatisticView.xaml.cs">
+      <DependentUpon>MonthlyStatisticView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\ProjectView.xaml.cs">
       <DependentUpon>ProjectView.xaml</DependentUpon>
     </Compile>
@@ -109,6 +113,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\ImportCheckView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\MonthlyStatisticView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

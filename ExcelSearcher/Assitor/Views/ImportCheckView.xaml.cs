@@ -104,7 +104,7 @@ namespace Assitor.Views
         {
             HttpProxy proxy = new HttpProxy(AppCache.Host);
 
-            var ret = await proxy.PostMessage<BatchResult<CheckModel>>("v1/oa/checktime/ones", checkList);
+            var ret = await proxy.PostMessage<BatchResult<CheckModel>>("v1/oa/checktime/ones", checkList,60);
 
             if (ret.HttpStatusCode == System.Net.HttpStatusCode.OK)
             {
