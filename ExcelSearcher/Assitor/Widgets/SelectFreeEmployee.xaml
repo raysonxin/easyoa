@@ -5,8 +5,46 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Assitor.Widgets"
         mc:Ignorable="d"
-        Title="SelectFreeEmployee" Height="450" Width="800">
+        ResizeMode="NoResize"
+        Title="选择人员" Height="400" Width="470">
+    <Window.Resources>
+        <Style TargetType="{x:Type TextBlock}">
+            <Setter Property="VerticalAlignment" Value="Center"/>
+        </Style>
+    </Window.Resources>
     <Grid>
-        <DataGrid Grid.Row="1" x:Name="dgResult" CanUserAddRows="False" IsReadOnly="True" ></DataGrid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="auto"/>
+        </Grid.RowDefinitions>
+        <DataGrid Grid.Row="0" x:Name="dgResult" CanUserAddRows="False" IsReadOnly="True" AutoGenerateColumns="False" ItemsSource="{Binding Employees}" SelectedItem="{Binding Current}">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="人员编号" Binding="{Binding DingId}" Width="180"/>
+                <DataGridTextColumn Header="人员姓名" Binding="{Binding Name}" Width="100"/>
+                <DataGridTextColumn Header="职位" Binding="{Binding Job}" Width="150"/>
+            </DataGrid.Columns>
+        </DataGrid>
+        <Grid Grid.Row="1">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="35"/>
+                <RowDefinition Height="35"/>
+                <RowDefinition Height="40"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="2*"/>
+            </Grid.ColumnDefinitions>
+            <TextBlock HorizontalAlignment="Right">
+                <Run Text="已选择："/>
+            </TextBlock>
+            <TextBlock Grid.Column="1">
+                <Run Text="{Binding Current.Name}"/>
+                <Run Text=" "/>
+                <Run Text="{Binding Current.Job}"/>
+            </TextBlock>
+            <TextBlock Text="开始日期：" Grid.Row="1" HorizontalAlignment="Right"/>
+            <DatePicker x:Name="dpStart" Width="150" Grid.Row="1" Grid.Column="1" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+            <Button Width="100" Content="确认选择" Grid.ColumnSpan="2" Grid.Row="2" Height="30" VerticalAlignment="Center" x:Name="btnConfirm" Click="btnConfirm_Click"/>
+        </Grid>
     </Grid>
 </Window>

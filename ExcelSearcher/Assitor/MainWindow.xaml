@@ -5,7 +5,8 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Assitor"
         mc:Ignorable="d"
-        Title="OA助手" Height="450" Width="800">
+        WindowStartupLocation="CenterScreen"
+        Title="OA助手" Height="450" Width="900">
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="auto"/>
@@ -16,6 +17,8 @@
             <Button Content="项目管理" Width="60" Height="50" Margin="5" Click="btnOpenView_Click" Tag="Project"/>
             <Button Content="人员管理" Width="60" Height="50" Margin="5" Click="btnOpenView_Click" Tag="Employee"/>
             <Button Content="人员分配" Width="60" Height="50" Margin="5" Click="btnOpenView_Click" Tag="StaffAllocate"/>
+            <Button Content="人力查询" Width="60" Height="50" Margin="5" Click="btnOpenView_Click" Tag="Weekly"/>
+            <Button Content="月统计" Width="60" Height="50" Margin="5" Click="btnOpenView_Click" Tag="Monthly"/>
         </StackPanel>
         <Grid Grid.Column="1">
             <Grid.RowDefinitions>

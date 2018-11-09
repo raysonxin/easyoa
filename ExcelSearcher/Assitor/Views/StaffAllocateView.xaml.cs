@@ -86,8 +86,6 @@ namespace Assitor.Views
 
         private async void GetProjects()
         {
-
-
             var ret = await proxy.GetMessage<BatchResult<ProjectModel>>("v1/oa/project");
             if (ret.HttpStatusCode == System.Net.HttpStatusCode.OK)
             {
@@ -95,6 +93,7 @@ namespace Assitor.Views
                 if (result != null && result.Count > 0)
                 {
                     Projects = new ObservableCollection<ProjectModel>(result);
+                    CurrentProject = Projects[0];
                 }
             }
         }
@@ -111,10 +110,15 @@ namespace Assitor.Views
                 if (result != null && result.Count > 0)
                 {
                     ProjectStaffes = new ObservableCollection<ProjectStaffModel>(result);
+                    CurrentProjStaff = ProjectStaffes[0];
+                }
+                else
+                {
+                    ProjectStaffes = null;
+                    CurrentProjStaff = null;
                 }
             }
         }
-
 
         #region PropertyChanged
         public event PropertyChangedEventHandler PropertyChanged;
@@ -132,30 +136,37 @@ namespace Assitor.Views
         }
         #endregion
 
-        private async void btnSelectAdd_Click(object sender, RoutedEventArgs e)
+        private void btnSelectAdd_Click(object sender, RoutedEventArgs e)
         {
-            //var ret = await proxy.GetMessage<BatchResult<EmployeeModel>>("v1/oa/employee/free");
-            //if (ret.HttpStatusCode == System.Net.HttpStatusCode.OK)
-            //{
-            //    var result = ret.Content.Data;
-            //    if (result != null && result.Count > 0)
-            //    {
 
-            //    }
-            //    else
-            //    {
-            //        MessageBox.Show("当前无空闲人员。");
-            //    }
-            //}
+            if (CurrentProject == null)
+            {
+                MessageBox.Show("请选择项目！");
+                return;
+            }
 
-            var win = new Widgets.SelectFreeEmployee((s,args) => {
+            var win = new Widgets.SelectFreeEmployee((s, args) =>
+            {
                 if (s != null)
                 {
-
+                    GetProjectStaffes();
                 }
-            });
-
+            }, CurrentProject.Id);
+            win.WindowStartupLocation = WindowStartupLocation.CenterScreen;
             win.ShowDialog();
+        }
+
+        private void btnRemove_Click(object sender, RoutedEventArgs e)
+        {
+            if (CurrentProjStaff == null)
+            {
+                MessageBox.Show("请选择需要移除的人员！");
+                return;
+            }
+
+            Widgets.DeallocateEmployee win = new Widgets.DeallocateEmployee(CurrentProjStaff);
+            win.ShowDialog();
+            GetProjectStaffes();
         }
     }
 }

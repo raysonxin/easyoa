@@ -12,6 +12,14 @@
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
 
-        <DataGrid Grid.Row="1" x:Name="dgResult" CanUserAddRows="False" IsReadOnly="True" ></DataGrid>
+        <DataGrid Grid.Row="1" x:Name="dgResult" CanUserAddRows="False" IsReadOnly="True" AutoGenerateColumns="False" >
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="名称" Binding="{Binding Name}" Width="*"/>
+                <DataGridTextColumn Header="代码" Binding="{Binding Code}" Width="*"/>
+                <DataGridTextColumn Header="联系人" Binding="{Binding Contact}" Width="*"/>
+                <DataGridTextColumn Header="开始日期" Binding="{Binding StartDate,StringFormat= 'yyyy-MM-dd'}" Width="*"/>
+                <DataGridTextColumn Header="结束日期" Binding="{Binding StopDate,StringFormat= 'yyyy-MM-dd'}" Width="*"/>
+            </DataGrid.Columns>
+        </DataGrid>
     </Grid>
 </UserControl>
